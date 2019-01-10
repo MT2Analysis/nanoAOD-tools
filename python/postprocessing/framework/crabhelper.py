@@ -9,7 +9,10 @@ def inputFiles():
    print "ARGV:",sys.argv
    JobNumber=sys.argv[1]
    crabFiles=PSet.process.source.fileNames
+   print 'Files from crab'
    print crabFiles
+   # this is a test to make it run on a single file
+   #crabFiles = [crabFiles[0]] # FIXME: for testing purposes, do everything only on the first file
    firstInput = crabFiles[0]
    tested=False
    forceaaa=False
@@ -40,6 +43,10 @@ def inputFiles():
      else:
        print "Data is not local, using AAA/xrootd"
        crabFiles[i]="root://cms-xrd-global.cern.ch/"+crabFiles[i]
+
+   print 'Actual files read'
+   print crabFiles
+
    return crabFiles
 
 def runsAndLumis():
@@ -60,7 +67,5 @@ def runsAndLumis():
               runsAndLumis[rstart]=[]
              runsAndLumis[rstart].append([int(lstart),int(lstop)])
 	 print "Runs and Lumis",runsAndLumis
-         return runsAndLumis 
+         return runsAndLumis
     return None
-
-
