@@ -132,7 +132,9 @@ class PostProcessor :
                 (nall, npass, timeLoop) = eventLoop(self.modules, inFile, outFile, inTree, outTree, self.maxEvents)
                 print 'Processed %d preselected entries from %s (%s entries). Finally selected %d entries' % (nall, fname, inTree.GetEntries(), npass)
 	    else:
-                print 'Selected %d entries from %s' % (outTree.tree().GetEntries(), fname)
+
+                nall = inTree.GetEntries()
+		print 'Selected %d entries from %s' % (outTree.tree().GetEntries(), fname)
 
 	    # now write the output
             if not self.noOut:
